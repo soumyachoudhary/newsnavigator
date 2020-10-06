@@ -48,8 +48,7 @@ def predict(url):
     article.nlp()
     if compare(article.title.split(), article.keywords) == "NOT CLICKBAIT" and is_clickbait(article.title) == 0:
       kk = "NOT CLICKBAIT"
-    else:
-		
+    else:	
       kk = "CLICKBAIT"
     
     
@@ -69,7 +68,6 @@ def get_headlines():
 	for i in top_headlines['articles']:
 		k = predict(i['url'])
 		final.append([i['url'], i['title'], i['description'], i['source']['name'], i['urlToImage'], k[1], k[2]])
-
 	return final
 
 def update(x):
