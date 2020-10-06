@@ -10,18 +10,14 @@ import pickle
 from newsapi import NewsApiClient
 from pymongo import MongoClient
 from pymongo.collection import ObjectId
-# import nltk
-# nltk.download('punkt')
-
-# from nltk import word_tokenize,sent_tokenize
 from clickbait import is_clickbait
 
-newsapi = NewsApiClient(api_key='e5aeec0b412a4bb0b7b7d63eaad8bd04') #MYAPI-e5aeec0b412a4bb0b7b7d63eaad8bd04 #OTHERAPI- 7d125ba012bc447681da91239d255267
+newsapi = NewsApiClient(api_key='e5aeec0b412a4bb0b7b7d63eaad8bd04') 
 linear_clf = pickle.load(open("model.pickle", "rb"))
 
 tfidf_vectorizer = pickle.load(open("vectorizer.pickle", "rb"))
 
-client = MongoClient("mongodb+srv://test:test@cluster0.dpcgx.mongodb.net/<dbname>?retryWrites=true&w=majority") #mongodb+srv://test:test@cluster0-fyszh.mongodb.net/<dbname>?retryWrites=true&w=majority
+client = MongoClient("mongodb+srv://test:test@cluster0.dpcgx.mongodb.net/<dbname>?retryWrites=true&w=majority")
 db = client.test
 
 db = client.get_database("news_data")
