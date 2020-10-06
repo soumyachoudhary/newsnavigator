@@ -5,7 +5,7 @@ import pandas as pd
 # from sklearn.metrics import accuracy_score
 # import numpy as np
 # import itertools
-# from sklearn.linear_model import PassiveAggressiveClassifier
+
 import pickle
 from newsapi import NewsApiClient
 from pymongo import MongoClient
