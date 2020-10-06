@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% set active_page = "trends" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head style = "background-color: #EDF2F7">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data1 = google.visualization.arrayToDataTable([
+          ['Type', 'number'],
+          ['Fake',  {{num_fake}}],
+          ['Real',  {{num_real}}]
+        ]);
+
+        var options1 = {
+          title: 'Fake or Real',
+          colors: ['#e0440e', '#ec8f6e'],
+          is3D: true,
+          backgroundColor: '#EDF2F7'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data1, options1);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Type', 'number'],
+          ['Clickbait',  {{num_clickbait}}],
+          ['Not Clickbait',  {{num_notclickbait}}]
+          
+        ]);
+
+        var options2 = {
+          title: 'Clickbait or Not Clickbait',
+          is3D: true,
+          backgroundColor: '#EDF2F7'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data2, options2);
+      }
+    </script>
+   <link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    <div id="container" class="container" style="padding-top:2%;text-align:center;">
+      <div id="piechart" style="width: 500px; height: 500px;"></div>
+      <div id="piechart2" style="width: 500px; height: 500px;"></div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

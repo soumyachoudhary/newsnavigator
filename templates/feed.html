@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set active_page = "feed" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet"media="screen,projection"/>
+<div id="container" class="container" style="padding-top:2%;">
+  {% for title in headlines %}
+    {% if title[6] == 'INVALID' or title[5] == 'INVALID' %}
+    {% else %}
+      <div class="card" style="padding-top:20px;padding-left:15px;padding-bottom:3px;padding-right:15px;margin-bottom:2%;">
+        <div class="container">
+          <div>
+            <div class="pic" style="">
+              <img src={{ title[4] }} alt="News Image" width="300px" height="200px">
+            </div>
+            {% if (title[1])  |length < 60 %}
+            <h2><b>{{ title[1] }}............................................................................................</b></h2> 
+            {% else %}
+            <h2><b>{{ title[1] }}</b></h2> 
+            {% endif %}
+            <h5><a href="{{ title[0] }}">{{ title[0] }}</a></h5>
+            <div style="display:inline;margin-top:1%;">
+              {% if (title[5]) == 'REAL' %}
+                <button style="border-radius:40px;pointer-events:none;cursor:default;" type="button" class="btn btn-success"><b>{{title[5]}}</b></button>
+              {% elif (title[5]) == 'FAKE' %}
+                <button style="border-radius:40px;pointer-events:none;cursor:default;" type="button" class="btn btn-danger"><b>{{title[5]}}</b></button>
+              {% endif %}
+              {% if title[6] == 'NOT CLICKBAIT' %}
+                <button style="border-radius:40px;color:white;pointer-events:none;cursor:default;" type="button" class="btn btn-success"><b>{{title[6]}}</b></button>
+              {% else %}
+                <button style="border-radius:40px;color:white;pointer-events:none;cursor:default;" type="button" class="btn btn-danger"><b>{{title[6]}}</b></button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endblock content %}

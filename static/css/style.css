@@ -1,0 +1,278 @@
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  font-size:100%;
+  padding:0%;
+  position: relative;
+}
+
+*:focus{
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #EDF2F7;
+}
+
+nav {
+  background-color: #3563DB!important;
+  min-height: 70px;
+  font-size: 17px;
+}
+
+.navbar-brand {
+  font-size: 25px !important;
+  margin-right: 0 !important;
+  padding-top: 0 !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 2rem !important;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#hero {
+  height: calc(100% - 71px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#hero h1 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 55px;
+}
+
+#hero p {
+  font-weight: 300;
+  font-size: 24pt;
+  margin-bottom: 60px;
+}
+/* 
+.btn {
+  background-color: #3563DB!important;
+} */
+
+#hero form {
+  margin-bottom: 60px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 34px;
+  margin-top: .7rem;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:#2A2A2A;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  /* box-shadow: .5px .5px .5px .5px #2A2A2A; */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color:#EDF2F7;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  outline: none;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(40px);
+  -ms-transform: translateX(40px);
+  transform: translateX(40px);
+}
+
+/*------ ADDED CSS ---------*/
+
+* {
+ box-sizing: border-box;
+}
+
+*:before, *:after {
+ box-sizing: border-box;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  margin-top: -50px;
+  background-color: #3563DB;
+  color: white;
+}
+
+.pic {
+  float:right;
+  right:0;
+}
+
+@media (min-device-width:600px) {
+    img[data-src-600px] {
+        content: attr(data-src-600px, url);
+    }
+}
+@media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+
+
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+} 
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
+
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} }
+
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Roboto, sans-serif;
+}
+
+.off {
+  color: #EAEAEA;
+}
+
+.on {
+  color: #2A2A2A;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+.page-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 50px;
+}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark-mode {
+  background-color: #2A2A2A;
+  color: white;
+}
+
+.dark-mode-input {
+  background-color: #353535;
+  color: white;
+  /* box-shadow: inset 4px 4px 4px 6px rgba(0, 0, 0, 0.25); */
+}
+
+.dark-mode-input:focus {
+  background-color: #353535;
+  color: white;
+  /* box-shadow: inset 4px 4px 4px 6px rgba(0, 0, 0, 0.25); */
+} 
+.shadowBox {
+  /* box-shadow: 0px 2.5px 6px 1px darkgrey; */
+}
+
+/*card*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  margin: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dark-card {
+  color: white;
+  background-color: #353535;
+  transition: 0.3s;
+  width: 100%;
+  margin: 10px;
+}
+
+.dark-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.container> div{display: inline-block;}
+
+/*@media only screen and (min-device-width: 360px) and (max-device-width: 640px){
+#form{
+
+}
+}*/
+

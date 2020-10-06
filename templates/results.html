@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<div class="resized" style="text-align:center;">
+ <div id="hero" class="container" style=" width: 1000px; height:500px; margin-top:4%; display: inline-block;">
+  <h1 style = "color: #272727 font-size:72;margin-bottom:2%;"> Were you reading <span style="color: #FF9900">fake news?</span></h1>
+  <p style="margin-bottom:3%;">Here's The Results! </p>
+  <div id="container" class="container">
+    <div class="container card" style="padding-top:2%;padding-bottom:2%;padding-left:2%;padding-right:2%;">
+      {% if value == 'INVALID' or clickbait == 'INVALID' %}
+        <h6 style="font-size:20px;text-align:center;"><b>Invalid: Check your URL again!</b></h6>
+      {% else %}
+        <h6 style="font-size:20px;text-align:left;"><b>Title: </b>{{ article_title }}</h6>
+        <h6 style="font-size:20px;text-align:left;"><b>Summary: </b>{{text}}</h6> 
+      {% endif %}
+      <div style="display:inline;">
+        {% if value == 'FAKE' %}
+          <button style="border-radius:40px;margin-bottom:15px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-danger"><b>{{value}}</b></button>
+        {% elif value == 'REAL' %}
+          <button style="border-radius:40px;margin-bottom:15px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-success"><b>{{value}}</b></button>
+        {% else %}
+          <button style="border-radius:40px;margin-bottom:25px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-warning"><b>{{value}}</b></button>
+        {% endif %}
+        {% if clickbait == 'NOT CLICKBAIT' %}
+          <button style="border-radius:40px;margin-bottom:15px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-success"><b>{{clickbait}}</b></button>
+        {% elif clickbait == 'CLICKBAIT' %}
+          <button style="border-radius:40px;margin-bottom:15px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-danger"><b>{{clickbait}}</b></button>
+        {% else %}
+          <button style="border-radius:40px;margin-bottom:25px;margin-top:2%;pointer-events:none;cursor:default;" type="button" class="btn btn-warning"><b>{{clickbait}}</b></button>
+        {% endif %}
+      </div>
+    </div>
+    <div style="text-align: left;">
+        <a href="/" style="text-align:left;">Go Back</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

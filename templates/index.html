@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<div class="resized" style="text-align:center;">
+ <div id="hero" class="container" style="width:1000px;height:100px;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;">
+  <h1 style = "color: #272727 font-size:72;margin-bottom:2%;"> Are you reading <span style="color: #FF9900">fake news?</span></h1>
+  <p style="margin-bottom:6%;">Enter a link to find out! </p>
+  <form class="input-group mb-3" id="form" method='POST' action='/' style="">
+    <input style="font-size: 25px;border-radius: 100px;border:none;height:6rem;padding-left:40px;" type="text" class="form-control shadowBox" placeholder="Enter URL of News Article" type = "text" name="url" value="{{request.form.url}}" ></input>
+    <div class="input-group-append">
+      <input style="font-size: 25px;border-radius:100px;font-weight:bold;border:none;width:12rem;margin-left:-100px;z-index: 10;background-color: #3563DB" class="btn btn-primary shadowBox" type="submit" value="SUBMIT"></input>
+    </div>
+  </form>
+</div>
+{% endblock content %}
